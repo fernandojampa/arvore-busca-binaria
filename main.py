@@ -1,3 +1,5 @@
+from arvoreBinaria import BinaryTree
+arvore = BinaryTree()
 while True:
     try:
 
@@ -17,7 +19,8 @@ while True:
         # Opção para inserir o nome dos candidatos.
 
         if opcao == 'd':
-            pass
+            texto = input('Digite a frase: ')
+            arvore.split(texto)
 
         elif opcao == 'e':
             pass
