@@ -1,5 +1,7 @@
-from arvoreBinaria import BinaryTree
+from node import Node
+from binaryTree import BinaryTree
 arvore = BinaryTree()
+
 while True:
     try:
 
@@ -23,7 +25,7 @@ while True:
             arvore.split(texto)
 
         elif opcao == 'e':
-            pass
+            print(arvore.exibirPalavras())
 
         # Opção para realizar o sorteio.
 
@@ -44,3 +46,30 @@ while True:
     except KeyboardInterrupt:
         print('\n !- Erro na Operação -!')
         print('\nComando de teclas pare encerrar a aplia escolhapressionadas. Por favor, para sair do programa, insira a opção correspondente, no menu principal.')
+
+
+'''raiz = Node('A')
+raiz.esq = Node('B')
+raiz.dir = Node('C')
+
+p = raiz.esq  # Nó B
+q = raiz.dir  # Nó C
+
+p.esq = Node('D')
+p.dir = None
+
+q.esq = Node('E')
+q.dir = Node('F')
+
+r = p.esq  # Nó D
+
+r.esq = None
+r.dir = Node('G')
+
+r = q.esq
+
+r.esq = Node('H')
+r.dir = Node('I')
+
+tree = BinaryTree()
+tree.em_ordem(raiz)'''
