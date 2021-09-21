@@ -14,6 +14,15 @@ class BinaryTree:
 
     def split(self, frase):
         self._frase = frase.split()
+        for i in range(len(self._frase)):
+            if i == 0:
+                raiz = Node(self._frase[i])
+            elif self._frase[i] < raiz.dado:
+                raiz.esq = Node(self._frase[i])
+            elif self._frase[i] > raiz.dado:
+                raiz.esq = Node(self._frase[i])
 
     def exibirPalavras(self):
-        return self._frase
+        raiz = Node(self._frase[0])
+        tree = BinaryTree()
+        tree.em_ordem(raiz)
