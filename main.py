@@ -24,9 +24,9 @@ while True:
                 tree.insert(p)
 
         elif opcao == 'e':
-            tree.inorder_traversal()
+            tree.em_ordem()
             print()
-            tree.postorder_traversal()
+            tree.pos_ordem()
 
         elif opcao == 'c':
             pass
