@@ -1,3 +1,4 @@
+from collections import Counter
 from node import Node
 ROOT = "root"
 
@@ -12,6 +13,7 @@ class BinaryTree:
         else:
             self.root = None
 
+    # Percurso em EM ORDEM em ÁRVORE BINÁRIA:
     def em_ordem(self, node=None):
         if node is None:
             node = self.root
@@ -30,3 +32,9 @@ class BinaryTree:
         if node.right:
             self.pos_ordem(node.right)
         print(node, end=' ')
+
+    def frequencia(self, list):
+        list = list
+        counts = Counter(list)
+        for i in counts:
+            print(f'{i} = {counts[i]}')

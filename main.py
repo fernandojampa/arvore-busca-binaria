@@ -2,6 +2,7 @@ from binarySearchTree import BinarySearchTree
 tree = BinarySearchTree()
 texto = []
 
+
 while True:
     try:
 
@@ -29,7 +30,7 @@ while True:
             tree.pos_ordem()
 
         elif opcao == 'c':
-            pass
+            tree.frequencia(texto)
 
         elif opcao == 's':
             break
