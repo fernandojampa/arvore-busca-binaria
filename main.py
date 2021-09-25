@@ -12,6 +12,7 @@ while True:
       (d) Digitar texto
       (e) Exibir palavras do texto Ascendente/Descendente
       (c) Exibir frequência de ocorrência das palavras
+      (b) Mostrar o nível de desbalanceamento da árvore
       (s) Sair
             ''')
 
@@ -31,6 +32,9 @@ while True:
 
         elif opcao == 'c':
             tree.frequencia(texto)
+
+        elif opcao == 'b':
+            print(tree.balanceamento())
 
         elif opcao == 's':
             break

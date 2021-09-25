@@ -38,3 +38,16 @@ class BinaryTree:
         counts = Counter(list)
         for i in counts:
             print(f'{i} = {counts[i]}')
+
+    def balanceamento(self, node=None):
+        if node is None:
+            node = self.root
+        hleft = 0
+        hright = 0
+        if node.left:
+            hleft = self.balanceamento(node.left)
+        if node.right:
+            hright = self.balanceamento(node.right)
+        if hright > hleft:
+            return hright + 1
+        return hleft + 1
