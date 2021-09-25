@@ -1,3 +1,4 @@
+from queue import Queue
 from collections import Counter
 from node import Node
 ROOT = "root"
@@ -14,24 +15,23 @@ class BinaryTree:
             self.root = None
 
     # Percurso em EM ORDEM em ÁRVORE BINÁRIA:
-    def em_ordem(self, node=None):
+    def ascendente(self, node=None):
         if node is None:
             node = self.root
         if node.left:
-            self.em_ordem(node.left)
+            self.ascendente(node.left)
         print(node, end=' ')
         if node.right:
-            self.em_ordem(node.right)
+            self.ascendente(node.right)
 
-    # Percurso em PÓS ORDEM em ÁRVORE BINÁRIA:
-    def pos_ordem(self, node=None):
+    def descendente(self, node=None):
         if node is None:
             node = self.root
-        if node.left:
-            self.pos_ordem(node.left)
         if node.right:
-            self.pos_ordem(node.right)
+            self.descendente(node.right)
         print(node, end=' ')
+        if node.left:
+            self.descendente(node.left)
 
     def frequencia(self, list):
         list = list
