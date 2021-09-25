@@ -26,17 +26,18 @@ while True:
                 tree.insert(p)
 
         elif opcao == 'e':
-            print('Ascendente')
+            print('\nAscendente')
             tree.ascendente()
             print()
-            print('Descendente')
+            print('\nDescendente')
             tree.descendente()
+            print()
 
         elif opcao == 'c':
             tree.frequencia(texto)
 
         elif opcao == 'b':
-            print(tree.levelorder_traversal())
+            print(tree.balanceamento())
 
         elif opcao == 's':
             break

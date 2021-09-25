@@ -1,4 +1,3 @@
-from queue import Queue
 from collections import Counter
 from node import Node
 ROOT = "root"
