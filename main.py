@@ -37,7 +37,7 @@ while True:
             tree.frequencia(texto)
 
         elif opcao == 'b':
-            print(tree.balanceamento())
+            print(tree.altura(texto[0]))
 
         elif opcao == 's':
             break
