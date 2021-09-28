@@ -55,12 +55,8 @@ class BinaryTree:
         if node.right:
             hright = self.altura(node.right)
 
-        if hright > hleft:
-            print(
-                f'Profundidade da Árvore direita: {hright+1}\nProfundidade daÁrvore esquerda: {hleft+1}')
-        else:
-            print(
-                f'Profundidade da Árvore esquerda: {hleft+1}\nProfundidade da Árvore direita: {hright+1}')
+        print(
+            f'Profundidade da Árvore direita: {hright+1}\nProfundidade daÁrvore esquerda: {hleft+1}')
 
         if hright - hleft > 1:
             print('Árvore desbalanceada')
@@ -82,16 +78,3 @@ class BinaryTree:
             return hright + 1
         else:
             return hleft + 1
-
-    '''def balanceada(self, node=None):
-
-        if node is None:
-            node = self.root
-
-        altura_esq = self.altura()
-        altura_dir = self.altura()
-        # Alturas diferem em mais de uma unidade.
-        if abs(altura_esq - altura_dir) > 1:
-            return False
-
-        return self.balanceada(node.left) and self.balanceada(node.right)'''
