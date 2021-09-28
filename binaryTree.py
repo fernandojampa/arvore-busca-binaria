@@ -13,7 +13,8 @@ class BinaryTree:
         else:
             self.root = None
 
-    # Percurso em EM ORDEM em ÁRVORE BINÁRIA:
+    # Método para mostrar o texto de forma ascendente.
+
     def ascendente(self, node=None):
         if node is None:
             node = self.root
@@ -23,6 +24,7 @@ class BinaryTree:
         if node.right:
             self.ascendente(node.right)
 
+    # Método para mostrar o texto de forma descendente.
     def descendente(self, node=None):
         if node is None:
             node = self.root
@@ -32,12 +34,14 @@ class BinaryTree:
         if node.left:
             self.descendente(node.left)
 
+    # Método para fazer a contagem das palavras repetidas ou não.
     def frequencia(self, list):
         list = list
         counts = Counter(list)
         for i in counts:
             print(f'{i} = {counts[i]}')
 
+    # Método que faz chamada da função altura para trazer a altura da árvore esquerda e direta.
     def balanceamento(self, node=None):
 
         if node is None:
@@ -49,16 +53,14 @@ class BinaryTree:
         if node.right:
             hright = self.altura(node.right)
 
-        # print(
-        #     f'\nProfundidade da árvore esquerda: {hleft+1}\nProfundidade da árvore direita: {hright+1}')
-        
-        
+        # condição que define se a árvore está balanceada ou não.
         print(f'\nFator de balanceamento da árvore: {hleft - hright}')
         if hleft - hright == 1 or hleft - hright == 0 or hleft - hright == -1:
             print('Árvore balanceada')
         else:
             print('Árvore Desbalanceada')
 
+    # Método que acessa todo o lado esquerdo e depois todo o lado direito das sub-árvores trazendo a altura delas com chamadas recursivas.
     def altura(self, node=None):
 
         if node is None:

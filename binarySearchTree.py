@@ -1,6 +1,8 @@
 from binaryTree import BinaryTree
 from node import Node
 
+# Classe que estrutura a árvore binária de busca onde todos os elementos menores que a raiz são alocados à esquerda e os maiores à direita.
+
 
 class BinarySearchTree(BinaryTree):
 
