@@ -3,6 +3,11 @@ from node import Node
 ROOT = "root"
 
 
+class TreeException(Exception):
+    def __init__(self, mensagem):
+        super().__init__(mensagem)
+
+
 class BinaryTree:
     def __init__(self, data=None, node=None):
         if node:
@@ -16,15 +21,21 @@ class BinaryTree:
     # Método para mostrar o texto de forma ascendente.
 
     def ascendente(self, node=None):
-        if node is None:
-            node = self.root
-        if node.left:
-            self.ascendente(node.left)
-        print(node, end=' ')
-        if node.right:
-            self.ascendente(node.right)
+
+        if self.root == None:
+            raise TreeException(
+                "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
+        else:
+            if node is None:
+                node = self.root
+            if node.left:
+                self.ascendente(node.left)
+            print(node, end=' ')
+            if node.right:
+                self.ascendente(node.right)
 
     # Método para mostrar o texto de forma descendente.
+
     def descendente(self, node=None):
         if node is None:
             node = self.root
@@ -38,10 +49,15 @@ class BinaryTree:
     def frequencia(self, list):
         list = list
         counts = Counter(list)
-        for i in counts:
-            print(f'{i} = {counts[i]}')
+        if self.root == None:
+            raise TreeException(
+                "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
+        else:
+            for i in counts:
+                print(f'{i} = {counts[i]}')
 
     # Método que faz chamada da função altura para trazer a altura da árvore esquerda e direta.
+
     def balanceamento(self, node=None):
 
         if node is None:
@@ -76,3 +92,9 @@ class BinaryTree:
             return hright + 1
         else:
             return hleft + 1
+
+    def vazia(self):
+        if self.root != None:
+            return False
+        else:
+            return True

@@ -1,4 +1,5 @@
 from binarySearchTree import BinarySearchTree
+from binaryTree import TreeException
 tree = BinarySearchTree()
 texto = []
 
@@ -31,23 +32,48 @@ while True:
                 print(
                     "\nTexto inserido inválido. Por favor, digite uma frase contendo apenas letras.")
 
+        # elif opcao == 'e':
+           # if len(texto) == 0:
+            #  print ("\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
+            # else:
+             # print('\nAscendente')
+             # tree.ascendente()
+             # print()
+             # print('\nDescendente')
+             # tree.descendente()
+             # print()
+
         elif opcao == 'e':
-            print('\nAscendente')
-            tree.ascendente()
-            print()
-            print('\nDescendente')
-            tree.descendente()
-            print()
+            if tree.vazia() == False:
+                try:
+                    print('\nAscendente')
+                    tree.ascendente()
+
+                    print()
+                    print('\nDescendente')
+                    tree.descendente()
+                    print()
+                except TreeException as e:
+                    print(e)
+            else:
+                print(
+                    '\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente')
 
         elif opcao == 'c':
-            tree.frequencia(texto)
+
+           # if len(texto) == 0:
+           #   print ("\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
+           # else:
+            try:
+                tree.frequencia(texto)
+            except TreeException as e:
+                print(e)
 
         elif opcao == 'b':
             try:
                 tree.balanceamento()
-            except AttributeError:
-                print(
-                    "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
+            except TreeException as e:
+                print(e)
 
         elif opcao == 's':
             break
