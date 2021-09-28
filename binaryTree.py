@@ -38,12 +38,6 @@ class BinaryTree:
         for i in counts:
             print(f'{i} = {counts[i]}')
 
-    def altura(self, root):
-        root = self.root
-        if root is None:
-            return 0
-        return max(self.altura(root.left), self.altura(root.right)) + 1
-
     def balanceamento(self, node=None):
 
         if node is None:
@@ -55,13 +49,15 @@ class BinaryTree:
         if node.right:
             hright = self.altura(node.right)
 
-        print(
-            f'Profundidade da Árvore direita: {hright+1}\nProfundidade daÁrvore esquerda: {hleft+1}')
-
-        if hright - hleft > 1:
-            print('Árvore desbalanceada')
-        else:
+        # print(
+        #     f'\nProfundidade da árvore esquerda: {hleft+1}\nProfundidade da árvore direita: {hright+1}')
+        
+        
+        print(f'\nFator de balanceamento da árvore: {hleft - hright}')
+        if hleft - hright == 1 or hleft - hright == 0 or hleft - hright == -1:
             print('Árvore balanceada')
+        else:
+            print('Árvore Desbalanceada')
 
     def altura(self, node=None):
 

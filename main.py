@@ -19,11 +19,16 @@ while True:
         opcao = input('Insira a opção desejada: ').lower()
 
         if opcao == 'd':
+          
             frase = input('Digite a frase: ')
-            texto = frase.split()
-            tree = BinarySearchTree()
-            for p in texto:
+            if frase.replace(" ","").isalpha():
+              texto = frase.split()
+              tree = BinarySearchTree()
+              print ("\nTexto inserido com sucesso!")
+              for p in texto:
                 tree.insert(p)
+            else:
+              print("\nTexto inserido inválido. Por favor, digite uma frase contendo apenas letras.")
 
         elif opcao == 'e':
             print('\nAscendente')
@@ -37,7 +42,10 @@ while True:
             tree.frequencia(texto)
 
         elif opcao == 'b':
+          try:
             tree.balanceamento()
+          except AttributeError:
+            print ("\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
 
         elif opcao == 's':
             break
