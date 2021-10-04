@@ -1,6 +1,6 @@
 from collections import Counter
 from node import Node
-ROOT = "root"
+#ROOT = "root"
 
 
 class TreeException(Exception):
@@ -19,20 +19,14 @@ class BinaryTree:
             self.root = None
 
     # Método para mostrar o texto de forma ascendente.
-
     def ascendente(self, node=None):
-
-        if self.root == None:
-            raise TreeException(
-                "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
-        else:
-            if node is None:
-                node = self.root
-            if node.left:
-                self.ascendente(node.left)
-            print(node, end=' ')
-            if node.right:
-                self.ascendente(node.right)
+        if node is None:
+            node = self.root
+        if node.left:
+            self.ascendente(node.left)
+        print(node, end=' ')
+        if node.right:
+            self.ascendente(node.right)
 
     # Método para mostrar o texto de forma descendente.
 
@@ -49,7 +43,7 @@ class BinaryTree:
     def frequencia(self, list):
         list = list
         counts = Counter(list)
-        if self.root == None:
+        if self.vazia():
             raise TreeException(
                 "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
         else:
@@ -60,6 +54,9 @@ class BinaryTree:
 
     def balanceamento(self, node=None):
 
+        if self.vazia():
+            raise TreeException(
+                "\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
         if node is None:
             node = self.root
         hleft = 0
@@ -77,6 +74,7 @@ class BinaryTree:
             print('Árvore Desbalanceada')
 
     # Método que acessa todo o lado esquerdo e depois todo o lado direito das sub-árvores trazendo a altura delas com chamadas recursivas.
+
     def altura(self, node=None):
 
         if node is None:
@@ -93,6 +91,7 @@ class BinaryTree:
         else:
             return hleft + 1
 
+    # Método para verificar se a árvore está vazia
     def vazia(self):
         if self.root != None:
             return False

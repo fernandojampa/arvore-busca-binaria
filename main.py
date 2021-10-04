@@ -19,8 +19,8 @@ while True:
 
         opcao = input('Insira a opção desejada: ').lower()
 
+        # Opção para digitar o texto.
         if opcao == 'd':
-
             frase = input('Digite a frase: ')
             if frase.replace(" ", "").isalpha():
                 texto = frase.split()
@@ -32,49 +32,35 @@ while True:
                 print(
                     "\nTexto inserido inválido. Por favor, digite uma frase contendo apenas letras.")
 
-        # elif opcao == 'e':
-           # if len(texto) == 0:
-            #  print ("\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
-            # else:
-             # print('\nAscendente')
-             # tree.ascendente()
-             # print()
-             # print('\nDescendente')
-             # tree.descendente()
-             # print()
-
+        # Opção para exibir as palavras de forma ascendente e descendente.
         elif opcao == 'e':
             if tree.vazia() == False:
-                try:
-                    print('\nAscendente')
-                    tree.ascendente()
+                print('\nAscendente')
+                tree.ascendente()
 
-                    print()
-                    print('\nDescendente')
-                    tree.descendente()
-                    print()
-                except TreeException as e:
-                    print(e)
+                print()
+                print('\nDescendente')
+                tree.descendente()
+                print()
             else:
                 print(
-                    '\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente')
+                    '\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente.')
 
+        # Opção para exivir a frenquência de ocorrência das palavras.
         elif opcao == 'c':
-
-           # if len(texto) == 0:
-           #   print ("\nErro na operação. Nenhum texto foi inserido. Por favor, digite um texto e tente novamente")
-           # else:
             try:
                 tree.frequencia(texto)
             except TreeException as e:
                 print(e)
 
+        # Opção para mostrar o nível de desbelanceamento da árvore.
         elif opcao == 'b':
             try:
                 tree.balanceamento()
             except TreeException as e:
                 print(e)
 
+        # Opção para encerrar o programa.
         elif opcao == 's':
             break
 
